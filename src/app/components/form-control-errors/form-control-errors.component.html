@@ -1,0 +1,51 @@
+<div
+  *ngIf="control.touched && control.errors"
+  class="d-block mt-1 text-danger small"
+>
+  <div *ngIf="control.errors.required">Required</div>
+  <div *ngIf="control.errors.min as min">
+    Must be greater than or equal to {{ min.min }}
+  </div>
+  <div *ngIf="control.errors.max as max">
+    Must be lower than or equal to {{ max.max }}
+  </div>
+  <div *ngIf="control.errors.minlength as minlength">
+    Must have at least {{ minlength.requiredLength }} characters
+  </div>
+  <div *ngIf="control.errors.maxlength as maxlength">
+    Must have at most {{ maxlength.requiredLength }} characters
+  </div>
+  <div *ngIf="control.errors.email">Invalid email</div>
+  <div *ngIf="control.errors.url">Invalid URL</div>
+  <div *ngIf="control.errors.linkedinUrl">Invalid LinkedIn profile URL</div>
+  <div *ngIf="control.errors.githubUrl">Invalid Github profile URL</div>
+  <div
+    *ngIf="!control.errors.intervalDate && control.errors.minDate as minDate"
+  >
+    Date must be after {{ minDate.minDate | date | null }}
+  </div>
+  <div
+    *ngIf="!control.errors.intervalDate && control.errors.maxDate as maxDate"
+  >
+    Date must be before {{ maxDate.maxDate | date | null }}
+  </div>
+  <div *ngIf="control.errors.intervalDate as intervalDate">
+    Date must be between {{ intervalDate.startDate | date | null }} and
+    {{ intervalDate.endDate | date | null }}
+  </div>
+  <div *ngIf="control.errors.minValue as minValue">
+    Must be greater than or equal to
+    {{ minValue.isCurrency ? (minValue.value | currency) : minValue.value }}
+  </div>
+  <div *ngIf="control.errors.minValueNotEqual as minValueNotEqual">
+    Must be greater than
+    {{
+      minValueNotEqual.isCurrency
+        ? (minValueNotEqual.value | currency)
+        : minValueNotEqual.value
+    }}
+  </div>
+  <div *ngIf="control.errors.customMessage as customMessage">
+    {{ customMessage }}
+  </div>
+</div>

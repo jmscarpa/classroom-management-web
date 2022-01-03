@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "amatiasq.sort-imports",
+    "angular.ng-template",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "johnpapa.angular2",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "mariusalchimavicius.json-to-ts",
+    "fabiospampinato.vscode-open-multiple-files"
+  ]
+}

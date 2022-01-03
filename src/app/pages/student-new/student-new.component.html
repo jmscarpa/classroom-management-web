@@ -1,0 +1,76 @@
+<a
+  [routerLink]="['/']"
+  class="text-muted small d-block mb-3 text-decoration-none"
+  >Back</a
+>
+<div class="card" *ngIf="form">
+  <div class="card-header bg-white">
+    <h4 class="mb-0">Add Student</h4>
+  </div>
+  <div class="card-body p-4">
+    <form [formGroup]="form">
+      <div class="form-floating mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Student name"
+          id="name"
+          formControlName="name"
+        />
+        <label for="name">Student name</label>
+        <app-form-control-errors
+          [control]="form.controls.name"
+        ></app-form-control-errors>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control"
+              placeholder="name@example.com"
+              id="email"
+              formControlName="email"
+            />
+            <label for="email">Student Email address</label>
+            <app-form-control-errors
+              [control]="form.controls.email"
+            ></app-form-control-errors>
+          </div>
+        </div>
+        <div class="col-12 col-md">
+          <div class="form-floating mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Student phone"
+              id="phone"
+              formControlName="phone"
+            />
+            <label for="phone">Student phone</label>
+            <app-form-control-errors
+              [control]="form.controls.phone"
+            ></app-form-control-errors>
+          </div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <ng-select
+          [items]="levels"
+          bindLabel="name"
+          bindValue="id"
+          class="custom"
+          formControlName="current_level_id"
+          placeholder="Choose a Level"
+          labelForId="current_level"
+        ></ng-select>
+        <app-form-control-errors
+          [control]="form.controls.current_level_id"
+        ></app-form-control-errors>
+      </div>
+      <button class="btn btn-primary text-white" (click)="save()">
+        Create Student
+      </button>
+    </form>
+  </div>
+</div>

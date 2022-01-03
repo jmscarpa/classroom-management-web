@@ -1,0 +1,51 @@
+<div id="background">
+  <div class="card">
+    <div class="card-body p-4">
+      <img
+        src="../../../assets/logo.png"
+        alt="logo"
+        class="mx-auto w-25 d-block"
+      />
+      <h4 class="text-center my-4">Access Your Account</h4>
+      <form [formGroup]="form" (ngSubmit)="login()">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            placeholder="name@example.com"
+            id="email"
+            formControlName="email"
+          />
+          <label for="email">Email address</label>
+          <app-form-control-errors
+            [control]="form.controls.email"
+          ></app-form-control-errors>
+        </div>
+        <div class="form-floating mb-3">
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Password"
+            id="password"
+            formControlName="password"
+          />
+          <label for="password">Password</label>
+          <app-form-control-errors
+            [control]="form.controls.password"
+          ></app-form-control-errors>
+        </div>
+        <a class="btn btn-primary w-100 text-white" (click)="login()">
+          Sign In
+        </a>
+        <p class="text-center text-muted mt-4">
+          Don't Have an account?
+          <a
+            [routerLink]="['/signup']"
+            class="text-primary text-decoration-none"
+            >Sign Up</a
+          >
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

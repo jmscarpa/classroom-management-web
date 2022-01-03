@@ -1,0 +1,76 @@
+<a
+  [routerLink]="['/']"
+  class="text-muted small d-block mb-3 text-decoration-none"
+  >Back</a
+>
+
+<div class="mb-4">
+  <h4 class="mb-0">
+    Students / Student Details /
+    <span class="fw-normal">{{ student.name }}</span>
+  </h4>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-4">
+    <div class="card mb-3" *ngIf="student">
+      <div class="card-body py-4 text-center">
+        <img
+          src="../../../assets/avatar.svg"
+          width="64"
+          class="rounded-circle img-thumbnail border-0"
+        />
+        <div class="mt-3">
+          <strong class="d-block">
+            {{ student.name }}
+          </strong>
+          <span class="badge rounded-pill bg-primary">
+            {{ student.current_level.name }}
+          </span>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item">
+          <strong class="d-block">Email:</strong>
+          {{ student.email }}
+        </li>
+        <li class="list-group-item">
+          <strong class="d-block">Phone:</strong>
+          {{ student.phone }}
+        </li>
+      </ul>
+      <div class="card-body p-0">
+        <button class="btn btn-primary rounded-0 border-0 w-100 text-white">
+          Edit Student
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-md-8">
+    <div class="card">
+      <div class="card-header bg-white border-0 py-3">
+        <ul class="nav nav-pills" *ngIf="student">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/students', student.id, 'lessons']"
+              [routerLinkActive]="['active']"
+              >Lessons</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              [routerLink]="['/students', student.id, 'payments']"
+              [routerLinkActive]="['active']"
+              >Payments</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

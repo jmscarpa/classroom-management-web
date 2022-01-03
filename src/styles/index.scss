@@ -1,0 +1,16 @@
+$primary: #731251;
+$secondary: #1c1c1c;
+$light: #f6f7fe;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+ng-select.custom {
+  border: 0px;
+  min-height: 0px;
+  border-radius: 0;
+}
+.ng-select.custom .ng-select-container {
+  height: 58px;
+  line-height: 1.25;
+  padding: 1rem 0.75rem;
+}
